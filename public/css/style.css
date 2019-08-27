@@ -1,0 +1,80 @@
+html {
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  justify-content: space-around;
+}
+
+h1 {
+  font-family: 'Vast Shadow', cursive;
+  font-size: 2.5em;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ddedea;
+}
+
+#app {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.conversion {
+  display: flex;
+  /* flex-direction: row; */
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 0.5em;
+  background-color: #ddedea;
+}
+
+#euro-to-other, #other-to-euro{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1em;
+  border: 1px double lightseagreen;
+  background-color: lightgrey;
+  border-radius: 5px;
+  margin: 2em;
+  max-width: 240px;
+  min-height: 294px;
+}
+#other-to-other{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1em;
+  border: 1px double lightseagreen;
+  background-color: lightgrey;
+  border-radius: 5px;
+  margin: 2em;
+}
+
+#input-other, #input-euros, .currency-select, .option-display, #other-other{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.option-display {
+  min-height: 2em;
+}
+
+#euro-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px double lightseagreen;
+  border-radius: 5px;
+  background-color: #ddedea;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  min-width: 154px;
+  min-height: 146px;
+}
