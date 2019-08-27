@@ -5,12 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     el: '#app',
     data: {
       currencies: {},
-      rates: {}
+      selectedCurrency: null,
+      inputValue: null
+
 
     },
     computed: {
-      allRates: function () {
-        return console.log(this.currencies)
+      convertOther: function () {
+        return this.selectedCurrency * this.inputValue
       }
     },
     mounted() {
