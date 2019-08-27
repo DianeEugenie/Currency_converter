@@ -10,12 +10,20 @@
 </head>
 <body>
 
-  <h1>Currrency Converter</h1>
+  <h1>Currency Converter</h1>
   <div id="app" >
 
-    <label for="input-value"></label>
+
+
+    <label for="input-value">Gimme your money</label>
     <input id="input-value" type="number" min="0" value="0" step="0.01">
 
+    <select id="currency-select">
+      <option disabled value="">Select a currency</option>
+      <option v-for="(rate, currency) in currencies.rates">
+      {{currency}}
+      </option>
+    </select>
   </div>
 </body>
 </html>

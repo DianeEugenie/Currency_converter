@@ -4,21 +4,45 @@ document.addEventListener('DOMContentLoaded', () => {
   new Vue({
     el: '#app',
     data: {
-      currencies: {}
+      currencies: {},
+      rates: {}
 
     },
-  mounted() {
-    this.fetchCurrencies();
+    computed: {
+      allRates: function () {
+        return console.log(this.currencies)
+      }
     },
-  methods: {
-    fetchCurrencies: function() {
-      fetch("https://api.exchangeratesapi.io/latest")
-      .then(res => res.json())
-      .then(data => this.currencies = data)
+    mounted() {
+      this.fetchCurrencies();
+    },
+    methods: {
+      fetchCurrencies: function() {
+        fetch("https://api.exchangeratesapi.io/latest")
+        .then(res => res.json())
+        .then(data => this.currencies = data);
+      }
     }
-  }
   });
 })
+
+//
+// computed: {
+//       neighbouringCountries: function(){
+//         return this.countries.filter((country) => {
+//           return this.selectedCountry.borders.includes(country.alpha3Code)
+//         });
+//       },
+//       totalPopCountries: function(){
+//         return this.countries.reduce((total, country) => total + country.population, 0)
+//       },
+//       totalNeighPop: function(){
+//         return this.neighbouringCountries.reduce((total, country) => total + country.population, 0)
+//       },
+//       totalAllShiz: function (){
+//         return this.selectedCountry.population + this.totalNeighPop;
+//       }
+//
 
 
 
