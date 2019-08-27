@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       currencies: {},
       selectedOther: null,
-      selectedCurrency: null,
-      inputEuros: null,
-      inputOther: null
+      selectedOtherToEuros: null,
+      inputEuros: 0,
+      inputOther: 0
     },
     computed: {
       convertOther: function () {
-        return this.selectedOther * this.inputEuros;
+        return (this.selectedOther * this.inputEuros).toFixed(2);
       },
       convertEuros: function () {
-        return this.inputOther / this.selectedCurrency;
+        return (this.inputOther / this.selectedOtherToEuros).toFixed(2);
       }
     },
     mounted() {

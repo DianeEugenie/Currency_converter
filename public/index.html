@@ -17,7 +17,7 @@
     <div>
 
     <label for="input-euros">Euros to Other</label>
-    <input id="input-euros" type="number" min="0" value="0" step="0.01" v-model="inputEuros">
+    <input id="input-euros" type="number" min="0" step="0.01" v-model="inputEuros">
 
     <select id="currency-select" v-model="selectedOther">
       <option disabled value="">Select a currency</option>
@@ -25,23 +25,23 @@
       {{currency}}
       </option>
     </select>
-    <p v-if="selectedOther">The current rate is {{selectedOther}}: Converted moneys: {{convertOther}}</p>
+    <p v-if="selectedOther && inputEuros">Converted monies: {{convertOther}}</p>
 
   </div>
 
   <div>
 
     <label for="input-other">Other to Euros</label>
-    <input id="input-other" type="number" min="0" value="0" step="0.01" v-model="inputOther">
+    <input id="input-other" type="number" min="0" step="0.01" v-model="inputOther">
 
-    <select id="currency-select" v-model="selectedCurrency">
+    <select id="currency-select" v-model="selectedOtherToEuros">
       <option disabled value="">Select a currency</option>
       <option v-for="(rate, currency) in currencies.rates" :value="rate">
       {{currency}}
       </option>
     </select>
 
-    <p v-if="selectedCurrency">The current rate is {{selectedCurrency}}: Converted moneys: {{convertEuros}}</p>
+    <p v-if="selectedOtherToEuros && inputOther">Converted monies: {{convertEuros}}</p>
 
 
 
