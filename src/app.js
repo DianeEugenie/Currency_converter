@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   new Vue({
     el: '#app',
     data: {
-      currencies: {},
+      rates: {},
       selectedOther: null,
       selectedOtherToEuros: null,
       selectedFirstOther: null,
@@ -15,13 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     computed: {
       convertOther: function () {
-        return (this.selectedOther * this.inputEuros).toFixed(2);
+        return new Intl.NumberFormat('en-GB', { style: 'currency', currency: this.getCurrencyKey}).format(this.selectedOther * this.inputEuros);
       },
       convertEuros: function () {
-        return (this.inputOther / this.selectedOtherToEuros).toFixed(2);
+        return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR' }).format(this.inputOther * this.selectedOtherToEuros);
       },
       convertOtherToOther: function () {
-        return (this.firstOther * this.selectedSecondOther / this.selectedFirstOther).toFixed(2);
+        return new Intl.NumberFormat('en-GB', { style: 'currency', currency: this.getCurrencyKeyOther }).format(this.firstOther * this.selectedSecondOther / this.selectedFirstOther);
+      },
+      getCurrencyKey: function () {
+        for (let key in this.rates) {
+          if (this.selectedOther === this.rates[key]) {
+            return key;
+          }
+        }
+      },
+      getCurrencyKeyOther: function () {
+        for (let key in this.rates) {
+          if (this.selectedSecondOther === this.rates[key]) {
+            return key;
+          }
+        }
       }
     },
     mounted() {
@@ -31,41 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchCurrencies: function() {
         fetch("https://api.exchangeratesapi.io/latest")
         .then(res => res.json())
-        .then(data => this.currencies = data);
+        // .then(data => this.currencies = data);
+        .then(data => this.rates = data.rates)
       }
     }
   });
 })
-
-//
-// computed: {
-//       neighbouringCountries: function(){
-//         return this.countries.filter((country) => {
-//           return this.selectedCountry.borders.includes(country.alpha3Code)
-//         });
-//       },
-//       totalPopCountries: function(){
-//         return this.countries.reduce((total, country) => total + country.population, 0)
-//       },
-//       totalNeighPop: function(){
-//         return this.neighbouringCountries.reduce((total, country) => total + country.population, 0)
-//       },
-//       totalAllShiz: function (){
-//         return this.selectedCountry.population + this.totalNeighPop;
-//       }
-//
-
-
-
-// mounted() {
-//   this.fetchCountries()
-// },
-// methods: {
-//   fetchCountries: function() {
-//     fetch("https://restcountries.eu/rest/v2/all")
-//     .then(response => response.json()) //also res
-//     .then(data => this.countries = data)
-//   },
-//   addCountryToList: function() {
-//     this.favCountries.push(this.selectedCountry);
-//   }

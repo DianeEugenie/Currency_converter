@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
   <style>
-  @import url('https://fonts.googleapis.com/css?family=Quicksand|Vast+Shadow&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Titan+One|Quicksand&display=swap');
   </style>
   <script src="js/bundle.js"></script>
   <title>Currency Converter</title>
@@ -15,7 +15,6 @@
 
   <h1>Curreny Converter</h1>
   <div id="app" >
-
 
     <div id="euro-to-other">
 
@@ -26,15 +25,18 @@
       Into
       <select class="currency-select" v-model="selectedOther">
         <option class="option-display" disabled value="">Select a currency</option>
-        <option class="option-display" v-for="(rate, currency) in currencies.rates" :value="rate">
+        <option class="option-display" v-for="(rate, currency) in rates" :value="rate" :id="currency">
           {{currency}}
         </option>
       </select>
 
       </div>
 
-      <p v-if="selectedOther && inputEuros" class="conversion">Converted monies:<br /> {{convertOther}}</p>
-
+      <p class="conversion">
+        <span v-if="selectedOther && inputEuros">
+          Converted monies:<br />
+          {{convertOther}}</p>
+        </span>
     </div>
 
     <div id="other-to-euro">
@@ -43,17 +45,22 @@
 
       <label for="input-other">Convert</label>
       <input id="input-other" type="number" min="0" step="0.01" v-model="inputOther">
-      Into Euros
+
       <select class="currency-select" v-model="selectedOtherToEuros">
         <option class="option-display" disabled value="">Select a currency</option>
-        <option class="option-display" v-for="(rate, currency) in currencies.rates" :value="rate">
+        <option class="option-display" v-for="(rate, currency) in rates" :value="rate">
           {{currency}}
         </option>
       </select>
-
+      Into Euros
       </div>
 
-      <p v-if="selectedOtherToEuros && inputOther" class="conversion">Converted monies:<br /> {{convertEuros}}</p>
+      <p class="conversion">
+        <span v-if="selectedOtherToEuros && inputOther">
+          Converted monies:<br />
+          {{convertEuros}}
+        </span>
+      </p>
 
     </div>
 
@@ -68,21 +75,26 @@
 
       <select class="currency-select" v-model="selectedFirstOther">
         <option class="option-display" disabled value="">Select a currency</option>
-        <option class="option-display" v-for="(rate, currency) in currencies.rates" :value="rate">
+        <option class="option-display" v-for="(rate, currency) in rates" :value="rate">
           {{currency}}
         </option>
       </select>
         Into
       <select class="currency-select" v-model="selectedSecondOther">
         <option class="option-display" disabled value="">Select a currency</option>
-        <option class="option-display" v-for="(rate, currency) in currencies.rates" :value="rate">
+        <option class="option-display" v-for="(rate, currency) in rates" :value="rate">
           {{currency}}
         </option>
       </select>
 
       </div>
 
-      <p v-if="firstOther && selectedFirstOther && selectedSecondOther" class="conversion">Converted monies:<br /> {{convertOtherToOther}}</p>
+      <p class="conversion">
+        <span v-if="firstOther && selectedFirstOther && selectedSecondOther">
+          Converted monies:<br />
+          {{convertOtherToOther}}
+        </span>
+      </p>
 
     </div>
 

@@ -2,11 +2,16 @@ html {
   font-family: 'Quicksand', sans-serif;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  background-color: lightgrey;
 }
 
 h1 {
-  font-family: 'Vast Shadow', cursive;
+  font-family: 'Titan One', cursive;
   font-size: 2.5em;
+  border: 1px solid lightseagreen;
+  border-radius: 5px;
+  padding: 0.5em;
 }
 
 body {
@@ -14,6 +19,8 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #ddedea;
+  border: 1px solid lightseagreen;
+  border-radius: 5px;
 }
 
 #app {
@@ -24,11 +31,13 @@ body {
 
 .conversion {
   display: flex;
-  /* flex-direction: row; */
-  border: 1px solid grey;
   border-radius: 5px;
   padding: 0.5em;
   background-color: #ddedea;
+  border: 1px solid lightseagreen;
+  min-height: 46px;
+  min-width: 170px;
+
 }
 
 #euro-to-other, #other-to-euro{
@@ -36,8 +45,8 @@ body {
   flex-direction: column;
   justify-content: space-around;
   padding: 1em;
-  border: 1px double lightseagreen;
-  background-color: lightgrey;
+  border: 1px solid lightseagreen;
+  background-color: #c2cfcc;
   border-radius: 5px;
   margin: 2em;
   max-width: 240px;
@@ -48,8 +57,8 @@ body {
   flex-direction: column;
   justify-content: space-around;
   padding: 1em;
-  border: 1px double lightseagreen;
-  background-color: lightgrey;
+  border: 1px solid lightseagreen;
+  background-color: #c2cfcc;
   border-radius: 5px;
   margin: 2em;
 }
@@ -70,7 +79,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px double lightseagreen;
+  border: 1px solid lightseagreen;
   border-radius: 5px;
   background-color: #ddedea;
   padding: 0.5em;
