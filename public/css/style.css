@@ -9,7 +9,9 @@ html {
 h1 {
   font-family: 'Titan One', cursive;
   font-size: 2.5em;
-  border: 1px solid lightseagreen;
+  border: 4px solid lightseagreen;
+  border-top-style: double;
+  border-bottom-style: double;
   border-radius: 5px;
   padding: 0.5em;
 }

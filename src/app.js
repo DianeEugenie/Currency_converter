@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return new Intl.NumberFormat('en-GB', { style: 'currency', currency: this.getCurrencyKey}).format(this.selectedOther * this.inputEuros);
       },
       convertEuros: function () {
-        return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR' }).format(this.inputOther * this.selectedOtherToEuros);
+        return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR' }).format(this.inputOther / this.selectedOtherToEuros);
       },
       convertOtherToOther: function () {
         return new Intl.NumberFormat('en-GB', { style: 'currency', currency: this.getCurrencyKeyOther }).format(this.firstOther * this.selectedSecondOther / this.selectedFirstOther);
