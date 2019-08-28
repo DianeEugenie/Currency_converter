@@ -45,8 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchCurrencies: function() {
         fetch("https://api.exchangeratesapi.io/latest")
         .then(res => res.json())
-        // .then(data => this.currencies = data);
-        .then(data => this.rates = data.rates)
+        .then(data => this.rates = data.rates);
       }
     }
   });
